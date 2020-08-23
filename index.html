@@ -1,11 +1,98 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 <body>
-    
+    <!--High Scores Button-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container navbar-container mx-0">
+            <div class="row w-100">
+                <div class="col-4 col-md-2">
+                    <button type="button" id="highscore-button" class="btn btn-info">View High Scores</button> 
+                </div>
+                <!--TIme Remaining-->
+                <div class="col-3 col-md-7"></div>
+                <div class="col-5 col-md-3">
+                    <form>
+                        <div class="form-group row">
+                            <label for="time-remaining" class="col-sm-7 col-form-label">Time Remaining</label>
+                            <div class="col-sm-5">
+                                <input type="number" readonly class="form-control" id="time-remaining" placeholder="0">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="landing-container" class="container">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h1>Quiz</h1>
+            </div>
+        </div>
+        <!--Instructions-->
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <p>Answer ALL THE QUESTIONS Prior To Time Running Out! Each Wrong Answer Will Result In A 15 Second Run-Off! More TIme Left On The Clock = Higher Score!</p>
+            </div>
+        </div>
+        <!--Start Quiz Button-->
+        <div class="row">
+            <div class="col-12 text-center">
+                <button id="start-button" type="button" class="btn btn-secondary btn-lg">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz-container" class="container d-none">
+        
+    </div>
+    <!--Final Score-->
+    <div id="final-container" class="container d-none">
+        <div class="row">
+            <div class="col-12 text-center">
+                <form>
+                    <div class="form-group row">
+                        <label for="final-score" class="col-sm-7 col-form-label">Your Final Score</label>
+                        <div class="col-sm-5">
+                            <input type="number" readonly class="form-control" id="final-score" placeholder="0">
+                        </div>
+                    </div>
+                </form>
+                <!--Username-->
+                <form>
+                    <div class="form-group">
+                      <label for="UserName-entry">UserName</label>
+                      <input type="text" class="form-control" id="UserName-entry" placeholder="UserName">
+                    </div>
+                    <!--Submit Btn-->
+                    <button id="submit-UserName" type="button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--HighScores-->
+    <div id="highscore-container" class="container d-none">
+        <div class="row">
+            <div class="col-2"></div>
+            <div id="highscore-table" class="col-8">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2>High Scores</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
