@@ -8,6 +8,7 @@ Css
 HTML
 ## Preview
 ![alt_preview](assets/images/Quiz.jpg)
+![alt_preview](assets/images/highscore.jpg)
 ## User Story
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
