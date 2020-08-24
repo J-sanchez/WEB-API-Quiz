@@ -1,17 +1,18 @@
 # WEB-API-Quiz
-##Purpose 
+Challenge 4 Code Quiz
+## Purpose 
 This is a deployed website which supplies a short, timed, quiz on basic JavaScript.
-##Built With
+## Built With
 JavaScript
 Css
 HTML
-##Preview
-![alt_preview](assets/images/Quiz.JPG)
-##User Story
+## Preview
+![alt_preview](assets/images/Quiz.jpg)
+## User Story
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
-##Acceptance Criteria 
+## Acceptance Criteria 
 GIVEN I am taking a code quiz
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
