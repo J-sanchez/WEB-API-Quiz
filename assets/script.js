@@ -1,3 +1,4 @@
+//Questions
 var questions = [{
     title: "Inside which HTML element do we put the JavaScript?",
     choices: ["<javascript>", "<js>", "<script>", "<scripting>"],
@@ -24,3 +25,27 @@ var questions = [{
     answer: "for (i = 0; i <= 5; i++)"
 }
 ]
+// Score and timer
+var score = 0;
+var currentQuestion = -1;
+var timeLeft = 0;
+var timer;
+
+//starts the countdown timer once user clicks the 'start' button
+function start() {
+
+    timeLeft = 60;
+    document.getElementById("timeLeft").innerHTML = timeLeft;
+
+    timer = setInterval(function() {
+        timeLeft--;
+        document.getElementById("timeLeft").innerHTML = timeLeft;
+        //proceed to end the game function when timer is below 0 at any time
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            endGame(); 
+        }
+    }, 1000);
+
+    next();
+}
