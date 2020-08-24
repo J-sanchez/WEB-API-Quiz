@@ -81,3 +81,43 @@ function getScore() {
 
     document.getElementById("landing-container").innerHTML = quizContent;
 }
+
+//clears HighScore in Local
+function clearScore() {
+    localStorage.setItem("highscore", "");
+    localStorage.setItem("highscoreName",  "");
+
+    resetGame();
+}
+
+//reset the game 
+function resetGame() {
+    clearInterval(timer);
+    score = 0;
+    currentQuestion = -1;
+    timeLeft = 0;
+    timer = null;
+
+    document.getElementById("timeLeft").innerHTML = timeLeft;
+
+    var quizContent = `
+    <h3>
+        Click to play AGAIN!   
+    </h3>
+    <button onclick="start()">Start!</button>`;
+
+    document.getElementById("landing-container").innerHTML = quizContent;
+}
+
+//deduct 10 seconds after wrong answer
+function incorrect() {
+    timeLeft -= 10; 
+    next();
+}
+
+//increases the score by 20points if the user chooses the correct answer
+function correct() {
+    score += 20;
+    next();
+}
+
