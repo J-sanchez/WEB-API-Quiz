@@ -1,8 +1,8 @@
 //Questions
 var questions = [{
     title: "Inside which HTML element do we put the JavaScript?",
-    choices: ["<javascript>", "<js>", "<script>", "<scripting>"],
-    answer: "<script>"
+    choices: ["javascript", "js", "script", "scripting"],
+    answer: "script"
 },
 {
     title: "What is the correct JavaScript syntax to write 'Hello World'?",
@@ -10,7 +10,7 @@ var questions = [{
     answer: "document.wrote('Hello World')"
 },
 {
-    title: " An external JavaScript must contain the <script> tag",
+    title: " An external JavaScript must contain the script tag",
     choices: ["True", "False"],
     answer: "False"
 },
@@ -48,4 +48,36 @@ function start() {
     }, 1000);
 
     next();
+}
+function endGame() {
+    clearInterval(timer);
+
+    var quizContent = `
+    <h2>Game over!</h2>
+    <h3>You got a ` + score +  ` /100!</h3>
+    <h3>That means you got ` + score / 20 +  ` questions correct!</h3>
+    <input type="text" id="name" placeholder="UserName"> 
+    <button onclick="setScore()">Set score!</button>`;
+
+    document.getElementById("landing-container").innerHTML = quizContent;
+}
+
+//store the scores on local storage
+function setScore() {
+    localStorage.setItem("highscore", score);
+    localStorage.setItem("highscoreName",  document.getElementById('name').value);
+    getScore();
+}
+
+
+function getScore() {
+    var quizContent = `
+    <h2>` + localStorage.getItem("highscoreName") + `'s highscore is:</h2>
+    <h1>` + localStorage.getItem("highscore") + `</h1><br> 
+    
+    <button onclick="clearScore()">Clear score!</button><button onclick="resetGame()">Play Again!</button>
+    
+    `;
+
+    document.getElementById("landing-container").innerHTML = quizContent;
 }
