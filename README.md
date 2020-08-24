@@ -1,5 +1,5 @@
 # WEB-API-Quiz
-Challenge 4 Code Quiz
+Challenge 4 Code Quiz: https://j-sanchez.github.io/WEB-API-Quiz/
 ## Purpose 
 This is a deployed website which supplies a short, timed, quiz on basic JavaScript.
 ## Built With
