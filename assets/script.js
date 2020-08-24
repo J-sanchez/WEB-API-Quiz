@@ -147,22 +147,22 @@ function next() {
     document.getElementById("landing-container").innerHTML = quizContent;
 }
 
-function compare() {
-    var element = event.target;
+// Checks answer responses
+function checkAnswer(answer){
+    correct = quizQuestions[currentQuestion].correctAnswer;
 
-    if (element.matches("li")) {
-
-        var currentQuestion = document.createElement("div");
-        currentQuestion.setAttribute("id", "currentQuestion");
-        // Correct condition 
-        if (element.textContent == questions[quizContent].answer) {
-            score++;
-            currentQuestion.textContent = "Correct! The answer is:  " + questions[quizContent].answer;
-            // Correct condition 
-        } else {
-            // Will deduct -10 seconds off secondsLeft for wrong answers
-            secondsLeft = secondsLeft - penalty;
-            currentQuestion.textContent = "Wrong! The correct answer is:  " + questions[quizContent].answer;
-        }
+    if (answer === correct && currentQuestion !== finalQuestion){
+        score++;
+        alert("That Is Correct!");
+        currentQuestion++;
+        generateQuizQuestion();
+        //display if answer is correct.
+    }else if (answer !== correct && currentQuestion !== finalQuestion){
+        alert("That Is Incorrect.")
+        currentQuestion++;
+        generateQuizQuestion();
+        //display if answer is wrong.
+    }else{
+        showScore();
     }
 }
