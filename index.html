@@ -10,59 +10,28 @@
 </head>
 <body>
     <!--High Scores Button-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container navbar-container mx-0">
-            <div class="row w-100">
-                <div class="col-4 col-md-2">
-                    <button type="button" id="highscore-button" class="btn btn-info">View High Scores</button> 
+    <div id ="nav">
+    <div class="btn-left">
+        <a onclick="getScore()" href="#"><h4>View High Scores</h4></a> 
                 </div>
                 <!--TIme Remaining-->
-                <div class="col-3 col-md-7"></div>
-                <div class="col-5 col-md-3">
-                    <form>
-                        <div class="form-group row">
-                            <label for="time-remaining" class="col-sm-7 col-form-label">Time Remaining</label>
-                            <div class="col-sm-5">
-                                <input type="number" readonly class="form-control" id="time-remaining" placeholder="0">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div id="landing-container" class="container">
-        <div class="row mb-3">
-            <div class="col-12 text-center">
-                <h1>Quiz</h1>
-            </div>
-        </div>
-        <!--Instructions-->
-        <div class="row mb-3">
-            <div class="col-12 text-center">
-                <p>Answer ALL THE QUESTIONS Prior To Time Running Out! Each Wrong Answer Will Result In A 15 Second Run-Off! More TIme Left On The Clock = Higher Score!</p>
-            </div>
-        </div>
-        <!--Start Quiz Button-->
-        <div class="row">
-            <div class="col-12 text-center">
-                <button id="start-button" type="button" class="btn btn-secondary btn-lg">Start Quiz</button>
-            </div>
+        <div class="btn-right">
+        <h4>Time: <span id="timeLeft">0</span></h4>
         </div>
     </div>
 
-    <div id="quiz-container" class="container d-none">
-        
+    <div id="landing-container" class="container">
+                <h1>Quiz</h1>
+        <!--Instructions-->
+                <p>Answer ALL THE QUESTIONS Prior To Time Running Out! Each Wrong Answer Will Result In a "15" Second Run-Off! More TIme Left On The Clock = Higher Score!</p>
+        <!--Start Quiz Button-->
+                <button id="start-button" type="button" class="btn btn-secondary btn-lg">Start Quiz</button>
+            </div>
     </div>
     <!--Final Score-->
     <div id="final-container" class="container d-none">
-        <div class="row">
-            <div class="col-12 text-center">
                 <form>
-                    <div class="form-group row">
-                        <label for="final-score" class="col-sm-7 col-form-label">Your Final Score</label>
-                        <div class="col-sm-5">
+                        <label for="final-score" class="final-score">Your Final Score</label>
                             <input type="number" readonly class="form-control" id="final-score" placeholder="0">
                         </div>
                     </div>
@@ -76,23 +45,16 @@
                     <!--Submit Btn-->
                     <button id="submit-UserName" type="button" class="btn btn-primary">Submit</button>
                 </form>
-            </div>
-        </div>
-    </div>
     <!--HighScores-->
     <div id="highscore-container" class="container d-none">
         <div class="row">
-            <div class="col-2"></div>
-            <div id="highscore-table" class="col-8">
-                <div class="row">
-                    <div class="col-12 text-center">
+            <div id="highscore-table" class="btn">
                         <h2>High Scores</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-2"></div>
-        </div>
-    </div>
+            </div>
+
     <script src="./assets/script.js"></script>
 </body>
 </html>
