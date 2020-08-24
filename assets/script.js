@@ -86,8 +86,8 @@ function getScore() {
 function clearScore() {
     localStorage.setItem("highscore", "");
     localStorage.setItem("highscoreName",  "");
-
-    resetGame();
+    var allScores = localStorage.getItem("allScores");
+allScores = JSON.parse(allScores);
 }
 
 //reset the game 
@@ -121,3 +121,48 @@ function correct() {
     next();
 }
 
+//loops through the questions 
+function next() {
+    currentQuestion++;
+
+    if (currentQuestion > questions.length - 1) {
+        endGame();
+        return;
+    }
+
+    var quizContent = "<h2>" + questions[currentQuestion].title + "</h2>"
+
+    for (var buttonLoop = 0; buttonLoop < questions[currentQuestion].choices.length; buttonLoop++) {
+        var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>"; 
+        buttonCode = buttonCode.replace("[CHOICE]", questions[currentQuestion].choices[buttonLoop]);
+        if (questions[currentQuestion].choices[buttonLoop] == questions[currentQuestion].answer) {
+            buttonCode = buttonCode.replace("[ANS]", "correct()");
+        } else {
+            buttonCode = buttonCode.replace("[ANS]", "incorrect()");
+        }
+        quizContent += buttonCode
+    }
+
+
+    document.getElementById("landing-container").innerHTML = quizContent;
+}
+
+function compare() {
+    var element = event.target;
+
+    if (element.matches("li")) {
+
+        var currentQuestion = document.createElement("div");
+        currentQuestion.setAttribute("id", "currentQuestion");
+        // Correct condition 
+        if (element.textContent == questions[quizContent].answer) {
+            score++;
+            currentQuestion.textContent = "Correct! The answer is:  " + questions[quizContent].answer;
+            // Correct condition 
+        } else {
+            // Will deduct -10 seconds off secondsLeft for wrong answers
+            secondsLeft = secondsLeft - penalty;
+            currentQuestion.textContent = "Wrong! The correct answer is:  " + questions[quizContent].answer;
+        }
+    }
+}
